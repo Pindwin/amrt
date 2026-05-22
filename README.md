@@ -30,4 +30,11 @@ Klient gry musi obsługiwać dwa połączenia: z LobbyServer oraz z GameServer. 
 - Zmiany stanu gry są requestowane przez graczy za pomocą podlegających lokalnej walidacji komend sieciowych, zgodnie z konwencją `SendFooRequest`. Odpowiedzi otrzymywane są również w formie komend sieciowych, w konwecji `ReceiveFooResponse`.
 - Aby zminimalizować wpływ jakości połączenia w trybie PvE, możemy obłużyć go inaczej po stronie klienta: nie czekać na odpowiedź serwera dotyczącą legalności ruchu, tylko przeprowadzić go od razu. Jeśli serwer odpowie komunikatem błędu, cofamy ruch; w przeciwnym razie, otrzymamy ruch gracza AI i gra toczy się dalej.
 
+### Diagram przepływu informacji
+
 <img width="800" height="712" alt="amrt" src="https://github.com/user-attachments/assets/21b83b50-6602-4905-b1b1-6c09672ef0bc" />
+
+### Diagram zależności assemblies
+
+<img width="1284" height="541" alt="AMRT-diag" src="https://github.com/user-attachments/assets/c5114a5b-5967-43fc-8558-5d572531654d" />
+
