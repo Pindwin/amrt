@@ -17,7 +17,7 @@
 ### GameServer
 Servery rozgrywki autorytatywnej będą składać się z kilku komponentów:
    -  `GameplayRuntime` - przechowuje aktualny stan rozgrywki i podlega replikacji do klienta.
-   -  `PlayerAPI` - umożliwia graczom modyfikacje stanu rozgrywki, zgodnie z logiką gry. W przypadku rozgrywki PvP, API jest konsumowane przez 2 połączonych graczy. W przypadku rozgrywki PvE, jednego z graczy zastępuje osobny komponent. Używa `GameplayRuntime`, aby walidować wykonywane ruchy; w zależności od wymagań, może odpowiadać na nieprawidłowe żądania komunikatami błędu.
+   -  `PlayerAPI` - umożliwia graczom modyfikacje stanu rozgrywki, zgodnie z logiką gry. W przypadku rozgrywki PvP, API jest konsumowane przez 2 połączonych graczy. W przypadku rozgrywki PvE, jednego z graczy zastępuje osobny komponent. PlayerAPI używa `GameplayRuntime`, aby walidować wykonywane ruchy; w zależności od wymagań, może odpowiadać na nieprawidłowe żądania komunikatami błędu.
    -  `BotOpponentService` - używany w przypadku rozgrywki PvE; konsumuje `PlayerAPI` i wykonuje ruchy gracza komputerowego.
    -  `GameplayReplicationService` - reaguje na zmiany w `GameplayRuntime` i replikuje je do klienta.
  
