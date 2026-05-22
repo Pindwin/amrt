@@ -18,7 +18,7 @@
 Servery rozgrywki autorytatywnej będą składać się z kilku komponentów:
    -  `GameplayRuntime` - przechowuje aktualny stan rozgrywki i podlega replikacji do klienta.
    -  `PlayerAPI` - umożliwia graczom modyfikacje stanu rozgrywki, zgodnie z logiką gry. W przypadku rozgrywki PvP, API jest konsumowane przez 2 połączonych graczy. W przypadku rozgrywki PvE, jednego z graczy zastępuje osobny komponent. Używa `GameplayRuntime`, aby walidować wykonywane ruchy; w zależności od wymagań, może odpowiadać na nieprawidłowe żądania komunikatami błędu.
-   -  `BotOpponentService` - używany w przypadku rozgrywki PvE; konsumuje `PlayerAPI` i wykonuje rochy gracza komputerowego.
+   -  `BotOpponentService` - używany w przypadku rozgrywki PvE; konsumuje `PlayerAPI` i wykonuje ruchy gracza komputerowego.
    -  `GameplayReplicationService` - reaguje na zmiany w `GameplayRuntime` i replikuje je do klienta.
  
 ### GameClient
@@ -28,3 +28,5 @@ Klient gry musi obsługiwać dwa połączenia: z LobbyServer oraz z GameServer. 
 - Lobby gry udostępnia widoki `IAvailableGamesView` oraz `ILeaderboardsView`. Zawierają się one we współdzielonej scenie **LobbyClient.unity**. Pozwalają one na interakcje z LobbyServer w granicach `LobbyMatchesAPI` oraz `LobbyLeaderboardsAPI`.
 - Rozgrywka obsługiwana jest przez osobną, ładowaną adytywnie scenę: **GameClient.unity**. Pozwala na interkcje z grą w granicach `PlayerAPI`. Używa replikowanego z GameServer `GameplayRuntime`, aby przedstawić aktualny stan rozgrywki za pomocą `IGameplayView`.
 - Zmiany stanu gry są requestowane przez graczy za pomocą podlegających lokalnej walidacji komend sieciowych, zgodnie z konwencją `SendFooRequest`. Odpowiedzi otrzymywane są również w formie komend sieciowych, w konwecji `ReceiveFooResponse`.
+
+<img width="800" height="712" alt="amrt" src="https://github.com/user-attachments/assets/21b83b50-6602-4905-b1b1-6c09672ef0bc" />
