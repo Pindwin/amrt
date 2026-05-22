@@ -28,5 +28,6 @@ Klient gry musi obsługiwać dwa połączenia: z LobbyServer oraz z GameServer. 
 - Lobby gry udostępnia widoki `IAvailableGamesView` oraz `ILeaderboardsView`. Zawierają się one we współdzielonej scenie **LobbyClient.unity**. Pozwalają one na interakcje z LobbyServer w granicach `LobbyMatchesAPI` oraz `LobbyLeaderboardsAPI`.
 - Rozgrywka obsługiwana jest przez osobną, ładowaną adytywnie scenę: **GameClient.unity**. Pozwala na interkcje z grą w granicach `PlayerAPI`. Używa replikowanego z GameServer `GameplayRuntime`, aby przedstawić aktualny stan rozgrywki za pomocą `IGameplayView`.
 - Zmiany stanu gry są requestowane przez graczy za pomocą podlegających lokalnej walidacji komend sieciowych, zgodnie z konwencją `SendFooRequest`. Odpowiedzi otrzymywane są również w formie komend sieciowych, w konwecji `ReceiveFooResponse`.
+- Aby zminimalizować wpływ jakości połączenia w trybie PvE, możemy obłużyć go inaczej po stronie klienta: nie czekać na odpowiedź serwera dotyczącą legalności ruchu, tylko przeprowadzić go od razu. Jeśli serwer odpowie komunikatem błędu, cofamy ruch; w przeciwnym razie, otrzymamy ruch gracza AI i gra toczy się dalej.
 
 <img width="800" height="712" alt="amrt" src="https://github.com/user-attachments/assets/21b83b50-6602-4905-b1b1-6c09672ef0bc" />
